@@ -72,7 +72,7 @@ def advanced_calculator():
         print("7. Factorial (!)")
         print("8. Trigonometric Functions (sin, cos, tan)")
         print("9. Logarithmic Functions (log, ln)")
-        print("10. Additional Functions (square, cube, abs, mod)")
+        print("10. (square, cube, abs, mod)")
         print("11. Quit")
 
         operation = input("Enter the operation (e.g., '+', 'sin', 'quit'): ").lower()
