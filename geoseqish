@@ -1,0 +1,39 @@
+#GEOMETRIC SEQUENCE ISH
+from fractions import Fraction
+
+def get_user_input(): #eto yung kukuha ng sagot sa user 
+    a1 = Fraction(input("Enter the first term (A1) of the geometric sequence: "))
+    r = Fraction(input("Enter the common ratio (r) of the geometric sequence: "))
+    term = int(input("Enter the term you want to calculate (n): "))
+    return a1, r, term
+
+
+def calculate_geometric_term(a1, r, term): # eto yung mag cacalculate ng geo term
+    return a1 * (r**(term - 1))
+
+def display_result(a1, r, term, calculated_value): # eto naka asign sa format ng solution
+    response = f"Calculations for the {term} term of the geometric sequence:\n"
+    response += f"An = A1(r^(n-1))\n"
+    response += f"   = {a1}({r}^{term-1})\n"
+    response += f"   = {a1}({r**(term-1)})\n"
+    response += f"   = {calculated_value}"
+    print(response)
+
+def calculate_geometric_sequence(): # eto yung mag cacalculate ng terms
+    while True:
+        try:
+            a1, r, term = get_user_input()
+            calculated_value = calculate_geometric_term(a1, r, term)
+            display_result(a1, r, term, calculated_value)
+
+        except ValueError as e:
+            print(f"Error: {e}")
+        except Exception as e:
+            print(f"An unexpected error occurred: {e}")
+
+        another_calculation = input("Do you want to calculate another term? (yes/no): ").lower()
+        if another_calculation != 'yes':
+            break
+
+# Run the function
+calculate_geometric_sequence()
