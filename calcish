@@ -46,7 +46,7 @@ def logarithmic_functions(x, func):
     else:
         return "Error: Argument must be greater than 0"
 
-def additional_functions(x, func):
+def func(x, func):
     if func == 'square':
         return x ** 2
     elif func == 'cube':
@@ -59,9 +59,9 @@ def additional_functions(x, func):
     else:
         return "Invalid function"
 
-def advanced_calculator():
+def calc():
     while True:
-        print("\nWelcome to the Advanced Calculator!")
+        print("\nNormal Calculator!")
         print("Available operations:")
         print("1. Addition (+)")
         print("2. Subtraction (-)")
@@ -121,11 +121,11 @@ def advanced_calculator():
 
         elif operation in ('square', 'cube', 'abs', 'mod'):
             x = float(input("Enter the number: "))
-            result = additional_functions(x, operation)
+            result = func(x, operation)
             print(f"Result: {result}")
 
         else:
             print("Invalid operation")
 
 if __name__ == "__main__":
-    advanced_calculator()
+    calc()
