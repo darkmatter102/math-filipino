@@ -1,0 +1,131 @@
+import math
+
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y != 0:
+        return x / y
+    else:
+        return "Error: Division by zero"
+
+def power(x, y):
+    return x ** y
+
+def square_root(x):
+    return math.sqrt(x)
+
+def factorial(x):
+    return math.factorial(x)
+
+def trigonometric_functions(x, func):
+    radians_x = math.radians(x)
+    if func == 'sin':
+        return math.sin(radians_x)
+    elif func == 'cos':
+        return math.cos(radians_x)
+    elif func == 'tan':
+        return math.tan(radians_x)
+    else:
+        return "Invalid function"
+
+def logarithmic_functions(x, func):
+    if x > 0:
+        if func == 'log':
+            return math.log10(x)
+        elif func == 'ln':
+            return math.log(x)
+        else:
+            return "Invalid function"
+    else:
+        return "Error: Argument must be greater than 0"
+
+def additional_functions(x, func):
+    if func == 'square':
+        return x ** 2
+    elif func == 'cube':
+        return x ** 3
+    elif func == 'abs':
+        return abs(x)
+    elif func == 'mod':
+        y = float(input("Enter the divisor for modulo operation: "))
+        return x % y
+    else:
+        return "Invalid function"
+
+def advanced_calculator():
+    while True:
+        print("\nWelcome to the Advanced Calculator!")
+        print("Available operations:")
+        print("1. Addition (+)")
+        print("2. Subtraction (-)")
+        print("3. Multiplication (*)")
+        print("4. Division (/)")
+        print("5. Exponentiation (^)")
+        print("6. Square Root (√)")
+        print("7. Factorial (!)")
+        print("8. Trigonometric Functions (sin, cos, tan)")
+        print("9. Logarithmic Functions (log, ln)")
+        print("10. Additional Functions (square, cube, abs, mod)")
+        print("11. Quit")
+
+        operation = input("Enter the operation (e.g., '+', 'sin', 'quit'): ").lower()
+
+        result = None  # Initialize result to None
+
+        if operation == 'quit':
+            break
+
+        if operation in ('+', '-', '*', '/', '^'):
+            x = float(input("Enter the first number: "))
+            y = float(input("Enter the second number: "))
+
+            if operation == '+':
+                result = add(x, y)
+            elif operation == '-':
+                result = subtract(x, y)
+            elif operation == '*':
+                result = multiply(x, y)
+            elif operation == '/':
+                result = divide(x, y)
+            elif operation == '^':
+                result = power(x, y)
+
+            print(f"Result: {result}")
+
+        elif operation == '√':
+            x = float(input("Enter the number: "))
+            result = square_root(x)
+            print(f"Result: {result}")
+
+        elif operation == '!':
+            x = int(input("Enter a non-negative integer: "))
+            result = factorial(x)
+            print(f"Result: {result}")
+
+        elif operation in ('sin', 'cos', 'tan'):
+            x = float(input("Enter the angle in degrees: "))
+            result = trigonometric_functions(x, operation)
+            print(f"Result: {result}")
+
+        elif operation in ('log', 'ln'):
+            x = float(input("Enter the number: "))
+            result = logarithmic_functions(x, operation)
+            print(f"Result: {result}")
+
+        elif operation in ('square', 'cube', 'abs', 'mod'):
+            x = float(input("Enter the number: "))
+            result = additional_functions(x, operation)
+            print(f"Result: {result}")
+
+        else:
+            print("Invalid operation")
+
+if __name__ == "__main__":
+    advanced_calculator()
